@@ -30,7 +30,7 @@ class CompanyController extends Controller
         $company = new Company();
         $company->name = $request->name;
         $company->email = $request->email;
-        $company->phone = $request->phone;
+        $company->website = $request->website;
 
         if ($request->hasFile('logo')){
             $originalName = $request->file('logo')->getClientOriginalName();
@@ -65,7 +65,7 @@ class CompanyController extends Controller
         $company = Company::find($request->id);
         $company->name = $request->name;
         $company->email = $request->email;
-        $company->phone = $request->phone;
+        $company->website = $request->website;
 
         if ($request->hasFile('logo')){
             $originalName = $request->file('logo')->getClientOriginalName();

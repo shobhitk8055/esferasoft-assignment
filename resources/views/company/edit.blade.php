@@ -6,6 +6,15 @@
 
     <div class="px-3 pt-3" style="background-color: white; border: black; border-width: 1px; border-style: solid;">
         <h4>Edit</h4>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form method="post" action="{{route('company.update')}}" enctype="multipart/form-data">
             @csrf
             <div class="form">
@@ -22,7 +31,7 @@
                 <div class="row">
                     <div class="col">
                         <label class="mt-2" for="website">Website</label>
-                        <input type="text" name="website" class="form-control" id="website" {{$company->website}} placeholder="website">
+                        <input type="text" name="website" class="form-control" id="website" value="{{$company->website}}">
                     </div>
                     <div class="col">
                         <label class="mt-2" for="logo">Logo</label>
